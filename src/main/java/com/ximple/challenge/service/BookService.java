@@ -17,24 +17,21 @@ import org.springframework.data.domain.Pageable;
  */
 @Service
 public class BookService {
-    
-    private final BookRepository bookRepository;
-    
-    private final ValidationService validationService;
 
-    public BookService(BookRepository bookRepository, ValidationService validationService) {
+    private final BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-        this.validationService = validationService;
     }
-    
-    public Page<Book> getAvailableBooks(Pageable pageable){
-        
+
+    public Page<Book> getAvailableBooks(Pageable pageable) {
+
         return bookRepository.findByAvailableTrue(pageable);
     }
-    
-    public Book markAsUnavailable(Book book){
+
+    public Book markAsUnavailable(Book book) {
         book.setAvailable(false);
         return bookRepository.save(book);
     }
-    
+
 }
