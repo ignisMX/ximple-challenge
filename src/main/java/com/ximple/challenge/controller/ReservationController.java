@@ -29,7 +29,7 @@ public class ReservationController {
     @PostMapping("/books/{bookId}/users/{userId}")
     public ResponseEntity<Reservation> createReservation(@PathVariable Long bookId, @PathVariable Long userId){
         
-        var reservation = reservationService.createReservation(bookId, bookId);
+        var reservation = reservationService.createReservation(bookId, userId);
         
         return ResponseEntity.ok(reservation);
     }

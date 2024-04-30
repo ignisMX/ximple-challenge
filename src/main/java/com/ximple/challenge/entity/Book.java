@@ -30,6 +30,9 @@ public class Book {
     @Column
     private boolean available;
 
+    public Book() {
+    }
+    
     public Long getId() {
         return id;
     }

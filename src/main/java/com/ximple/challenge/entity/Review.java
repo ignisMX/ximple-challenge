@@ -34,6 +34,9 @@ public class Review {
     @JoinColumn
     private UserAccount userAccount;
 
+    public Review() {
+    }
+    
     public Review(String review, Book book, UserAccount userAccount) {
         this.review = review;
         this.book = book;
