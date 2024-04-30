@@ -31,7 +31,7 @@ public class ReservationService {
     public Reservation createReservation(Long bookId, Long userId){
         var userAccount = validationService.validateUserById(userId);
         var book = validationService.validateBookReservationById(bookId);
-        bookService.markAsUnavailable(book);
+        book = bookService.markAsUnavailable(book);
         var reservation = new  Reservation(userAccount, book);
         reservation = reservationRepository.save(reservation);
         return reservation;
