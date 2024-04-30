@@ -5,7 +5,6 @@
 package com.ximple.challenge.repository;
 
 import com.ximple.challenge.entity.Book;
-import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
@@ -19,6 +18,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface BookRepository extends JpaRepository<Book, Long>{
     
     public Page<Book> findByAvailableTrue(Pageable pageable);
-    
-    public Optional<Book> findByTitle(String title);
 }
