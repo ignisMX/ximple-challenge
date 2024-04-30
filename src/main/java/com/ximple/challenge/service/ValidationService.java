@@ -26,14 +26,6 @@ public class ValidationService {
         this.bookRepository = bookRepository;
         this.userRepository = userRepository;
     }
-
-   
-    public Book validateBookByTitle(String title){
-    
-        var book = bookRepository.findByTitle(title).orElseThrow(()-> new BookNotFoundException(title));
-        
-        return book;
-    }
     
     public Book validateBookById(Long bookId){
         
