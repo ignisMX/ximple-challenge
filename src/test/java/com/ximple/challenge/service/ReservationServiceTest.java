@@ -32,7 +32,6 @@ public class ReservationServiceTest {
     private Book bookTwo;
 
     private UserAccount userAccountOne;
-    private UserAccount userAccountTwo;
     
     private Reservation reservationOne;
 
