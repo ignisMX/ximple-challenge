@@ -26,9 +26,18 @@ public class UserAccount {
 
     @Column
     private String name;
-    
+
     @Column
     private String lastName;
+
+    public UserAccount() {
+    }
+
+    public UserAccount(String username, String name, String lastName) {
+        this.username = username;
+        this.name = name;
+        this.lastName = lastName;
+    }
 
     public Long getId() {
         return id;
@@ -61,5 +70,5 @@ public class UserAccount {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
+
 }
