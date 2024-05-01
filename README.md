@@ -18,6 +18,8 @@ or navigate to ``docker/database`` from the root of database directory run ``doc
 ## Run the project
 from root of project run:
 ``mvn spring-boot:run``
+The project will load data from ``data.sql`` file. 
+**Note: The project does not have logic to create more books or users** 
 ### Endpoints
 The endpoints are available on ``http://localhost:8282/ximple``
 #### Books
