@@ -1,0 +1,5 @@
+FROM postgres:10-alpine
+ENV POSTGRES_USER ximple_user
+ENV POSTGRES_PASSWORD X1mpl3Password
+ENV POSTGRES_DB ximple
+EXPOSE 5432
