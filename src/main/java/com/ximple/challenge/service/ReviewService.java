@@ -7,9 +7,15 @@ package com.ximple.challenge.service;
 import com.ximple.challenge.entity.Review;
 import com.ximple.challenge.record.ReviewRequest;
 import com.ximple.challenge.repository.ReviewRepository;
-import org.springframework.data.domain.Pageable;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
 
 /**
  *
@@ -21,12 +27,15 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     
     private final ValidationService validationService;
-
+    
+    Logger logger = LoggerFactory.getLogger(ReviewService.class);
+    
     public ReviewService(ReviewRepository reviewRepository, ValidationService validationService) {
         this.reviewRepository = reviewRepository;
         this.validationService = validationService;
     }
     
+    @CacheEvict(value="bookreviews", allEntries=true)
     public Review createReview(Long bookId, Long userId, ReviewRequest reviewRequest){
         var userAccount = validationService.validateUserById(userId);
         var book = validationService.validateBookById(bookId);
@@ -40,8 +49,10 @@ public class ReviewService {
         return reviewRepository.findAll(pageable);
     }
     
+    @Cacheable(cacheNames = "bookreviews")
     public Page<Review> getReviewsByBookId(Long bookId, Pageable pageable){
         
+        logger.info("retrieving reviews with book id {} from database", bookId);
         return reviewRepository.findByBookId(bookId, pageable);
     }
 }
