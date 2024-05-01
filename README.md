@@ -7,8 +7,8 @@
 
 ## Installation
 Next instructions were validated in the following environments.
-Vagrant Ubuntu 22.04
-Debian 11
+* Vagrant Ubuntu 22.04
+* Debian 11
 
 ### Database container creation
 from root of project run:
