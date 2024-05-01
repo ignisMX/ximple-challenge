@@ -7,8 +7,8 @@
 
 ## Installation
 Next instructions were validated in the following environments.
-* Vagrant Ubuntu 22.04
-* Debian 11
+Vagrant Ubuntu 22.04
+Debian 11
 
 ### Database container creation
 from root of project run:
@@ -58,7 +58,7 @@ Sorry I didn't have time to add containers of grafana and prometheus in order to
 * Spring
 * Springboot
 
-In general there are three layers, the first is a repository layer to persist and recover data from database, the second is a layer of service to implement the bussines logic and the third is a layer to expose the endpoints- The project also contains suit of test in order have quaitly in the code.
+In general there are three layers, the first is a repository layer to persist and recover data from database, the second is a layer of service to implement the bussines logic and the third is a layer to expose the endpoints. The project also contains suit of test in order have quaitly in the code.
 
 ### Repository layer
 It persists and recovers data from database and laverages features of query methods
@@ -66,11 +66,10 @@ It persists and recovers data from database and laverages features of query meth
 ### Service Layer
 It contains bussines logic, there are 4 services that contains methods to perform operations required by description.
 ValidationService is a common service that helps to validates some basic data before doing a specific task.
-In accordance with the simplicity of requirements, it doesnit justify  interfaces creation, I tried to not do over-engineering.
+In accordance with the simplicity of requirements, it doesn't justify  interfaces creation, I tried to not do over-engineering.
 
 ### Web Layer
 It exposees controllers to perform actions required. Additional to that it adds logic to handle the exception and return the appropieted http code status.
-
 
 ## Database
 There are two basics entities into the database, These entities (UserAccount and Book) doesn't stores relationship with any other.
